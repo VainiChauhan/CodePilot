@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using CodePilot.Data;
+using CodePilot.Services;
 using CodePilot.Models;
 using System.Diagnostics;
 
@@ -14,6 +15,8 @@ namespace CodePilot.Controllers
         }
         public IActionResult Index()
         {
+            QuestionsFromApi questionsFromApi = new QuestionsFromApi();
+            
             var questions = _context.Questions.ToList();
             return View(questions);
         }

@@ -134,3 +134,4 @@ B:\Vaini Projects\CodePilot\CodePilot\bin\Debug\net8.0\runtimes\win\lib\net6.0\S
 B:\Vaini Projects\CodePilot\CodePilot\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 B:\Vaini Projects\CodePilot\CodePilot\obj\Debug\net8.0\CodePilot.csproj.AssemblyReference.cache
 B:\Vaini Projects\CodePilot\CodePilot\obj\Debug\net8.0\CodePilot.csproj.Up2Date
+B:\Vaini Projects\CodePilot\CodePilot\obj\Debug\net8.0\CodePilot.sourcelink.json
