@@ -16,7 +16,7 @@ namespace CodePilot.Controllers
         public IActionResult Index()
         {
             QuestionsFromApi questionsFromApi = new QuestionsFromApi();
-            
+            //QuestionsFromApi.Main(new string[2]);
             var questions = _context.Questions.ToList();
             return View(questions);
         }

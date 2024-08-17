@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CodePilot")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2a2d80a2258820b2ad506625cf886e988017ebb8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4c377264e36ba5bb93bde45d3ee67543afe9fa5b")]
 [assembly: System.Reflection.AssemblyProductAttribute("CodePilot")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CodePilot")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

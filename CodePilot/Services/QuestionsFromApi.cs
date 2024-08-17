@@ -2,10 +2,14 @@
 {
     public class QuestionsFromApi
     {
-        static async Task Main(string[] args)
+        public class sub()
+        {
+
+        }
+        public static async Task Main(string[] args)
         {
             // Replace with your actual endpoint URL
-            string apiUrl = "https://codeforces.com/api/contest.list?gym=false";
+            string apiUrl = "https://codeforces.com/api/problemset.problems";
 
             using (HttpClient client = new HttpClient())
             {

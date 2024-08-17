@@ -1,10 +1,21 @@
 using Microsoft.EntityFrameworkCore;
 using CodePilot.Data;
+using CodePilot.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<InMemoryUserStore>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/Login/Login";
+        options.LogoutPath = "/Login/Logout";
+        options.AccessDeniedPath = "/Login/AccessDenied";
+    });
+
 
 // Add the database context
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -26,7 +37,16 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+app.Use(async (context, next) =>
+{
+    if (!context.User.Identity.IsAuthenticated && context.Request.Path != "/Login/Login")
+    {
+        context.Response.Redirect("/Login/Login");
+        return;
+    }
 
+    await next();
+});
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
