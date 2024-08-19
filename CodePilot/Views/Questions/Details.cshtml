@@ -13,19 +13,19 @@
 
 <div>
     <h3>Sample Input</h3>
-    <pre>@Model.SampleInput</pre>
-</div>
+@*     //<pre>@Model.SampleInput</pre>
+ *@</div>
 
 <div>
     <h3>Sample Output</h3>
-    <pre>@Model.SampleOutput</pre>
-</div>
+@*     <pre>@Model.SampleOutput</pre>
+ *@</div>
 
 <hr />
 
 <form asp-action="SubmitCode" method="post">
-    <input type="hidden" name="QuestionId" value="@Model.Id" />
-
+@*     <input type="hidden" name="QuestionId" value="@Model.Id" />
+ *@
     <div class="form-group">
         <label for="language">Language:</label>
         <select id="language" name="Language" class="form-control">

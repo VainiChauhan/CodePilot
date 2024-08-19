@@ -1,37 +1,17 @@
-﻿@model IEnumerable<CodePilot.Models.Question>
+﻿@model IEnumerable<CodePilot.Data.Question>
 
 @{
-    ViewData["Title"] = "Questions";
+    ViewData["Title"] = "Select Questions";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h1>Select Questions</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    <a asp-action="Details" asp-route-id="@item.Id">View Details</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+<ul>
+    @foreach (var question in Model)
+    {
+        <li>
+            @question.Text
+            <!-- You can add more details or actions here if needed -->
+        </li>
+    }
+</ul>

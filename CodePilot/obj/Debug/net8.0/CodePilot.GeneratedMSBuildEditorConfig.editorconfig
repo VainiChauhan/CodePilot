@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = B:\Vaini Projects\CodePilot\CodePilot
 build_property._RazorSourceGeneratorDebug = 
 
+[B:/Vaini Projects/CodePilot/CodePilot/Views/CodeExecution/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZUV4ZWN1dGlvblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[B:/Vaini Projects/CodePilot/CodePilot/Views/CodeExecution/Results.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZUV4ZWN1dGlvblxSZXN1bHRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [B:/Vaini Projects/CodePilot/CodePilot/Views/Code/SubmitCode.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29kZVxTdWJtaXRDb2RlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

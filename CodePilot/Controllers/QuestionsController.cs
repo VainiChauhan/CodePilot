@@ -3,40 +3,39 @@ using CodePilot.Data;
 using CodePilot.Services;
 using CodePilot.Models;
 using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace CodePilot.Controllers
 {
     public class QuestionsController : Controller
     {
-        private readonly AppDbContext _context;
-        public QuestionsController(AppDbContext context)
+        private readonly ApplicationDbContext _context;
+        public QuestionsController(ApplicationDbContext context)
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            QuestionsFromApi questionsFromApi = new QuestionsFromApi();
-            //QuestionsFromApi.Main(new string[2]);
-            var questions = _context.Questions.ToList();
+            var questions = await _context.Questions.ToListAsync();
             return View(questions);
         }
-        public IActionResult Details(int id)
-        {
-            var question = _context.Questions.FirstOrDefault(q => q.Id == id);
-            return View(question);
-        }
+        //public IActionResult Details(int id)
+        //{
+        //    var question = _context.Questions.FirstOrDefault(q => q.Id == id);
+        //    return View(question);
+        //}
         [HttpPost]
-        public IActionResult SubmitCode(CodeSubmission submission)
-        {
-            submission.SubmissionTime = DateTime.Now;
-            submission.Result = Execute(submission.Code, submission.Language);
-            _context.CodeSubmissions.Add(submission);
-            _context.SaveChanges();
+        //public IActionResult SubmitCode(CodeSubmission submission)
+        //{
+        //    submission.SubmissionTime = DateTime.Now;
+        //    submission.Result = Execute(submission.Code, submission.Language);
+        //    _context.CodeSubmissions.Add(submission);
+        //    _context.SaveChanges();
 
-            ViewBag.Result = submission.Result;
-            var question = _context.Questions.FirstOrDefault(q => q.Id == submission.QuestionId);
-            return View("Details", question);
-        }
+        //    ViewBag.Result = submission.Result;
+        //    var question = _context.Questions.FirstOrDefault(q => q.Id == submission.QuestionId);
+        //    return View("Details", question);
+        //}
         private string Execute(string code, string language)
         {
             string output = string.Empty;

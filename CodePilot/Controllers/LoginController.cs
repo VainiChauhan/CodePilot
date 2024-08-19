@@ -20,6 +20,7 @@ namespace CodePilot.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            ViewData["IsLoginPage"] = true;
             return View();
         }
         [HttpPost]
@@ -46,17 +47,19 @@ namespace CodePilot.Controllers
 
                     return RedirectToAction("Index", "Home"); // Redirect to a secure area
                 }
+                ViewBag.ErrorMessage = "Invalid username or password";
 
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             }
 
             return View(login);
         }
-        [HttpPost]
+        //[HttpPost]
+        [HttpGet]
         public async Task<IActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Login");
         }
     }
 }

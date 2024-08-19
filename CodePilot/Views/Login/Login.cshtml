@@ -1,42 +1,50 @@
-﻿@model Login
+﻿@{
+    ViewBag.Title = "Login";
+}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="/assets/styles.css" rel="stylesheet">
-</head>
-<body>
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <div class="card mt-5 shadow">
+            <div class="card-body">
+                <h3 class="card-title text-center">Sign In</h3>
 
-    <div class="login-container">
-        <h2 class="text-center">Login</h2>
-        <form asp-action="Login" method="post">
-            <div class="form-group">
-                <label asp-for="Username" class="form-label"></label>
-                <input asp-for="Username" class="form-control" placeholder="Username" />
-                <span asp-validation-for="Username" class="text-danger"></span>
+                <form asp-action="Login" method="post">
+                    <div class="form-group mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" name="Username" placeholder="Enter your username" required />
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="Password" placeholder="Enter your password" required />
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                </form>
+
+                @if (ViewBag.ErrorMessage != null)
+                {
+                    <input type="hidden" id="errorMessage" value="@ViewBag.ErrorMessage" />
+                }
             </div>
-            <div class="form-group">
-                <label asp-for="Password" class="form-label"></label>
-                <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-check mb-3">
-                <input asp-for="RememberMe" type="checkbox" class="form-check-input" />
-                <label asp-for="RememberMe" class="form-check-label"></label>
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Login</button>
-        </form>
+        </div>
     </div>
+</div>
+<!-- Bootstrap Modal for error messages -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="errorModalLabel">Login Failed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="errorModalMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+<!-- Link to the external JavaScript file -->
+<script src="~/js/login.js"></script>
